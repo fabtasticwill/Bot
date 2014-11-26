@@ -9,6 +9,7 @@ class SimpleIrcBot
     say "USER willbot 0 * WillBot"
     say "JOIN ##{@channel}"
     say_to_chan "#{1.chr}ACTION is here to help#{1.chr}"
+    say "/msg nickserv register Neville! 123williammorris@gmail.com"
   end
 
   def say(msg)
