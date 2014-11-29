@@ -44,6 +44,7 @@ class SimpleIrcBot
           msg.gsub!(/.*?(?=!do)/im, "")
           msg.delete! '!do '
           say msg
+        end
         if content.match("!ruby ")
           msg.gsub!(/.*?(?=!ruby)/im, "")
           msg.delete! '!ruby '
@@ -64,7 +65,7 @@ class SimpleIrcBot
   end
 end
 
-bot = SimpleIrcBot.new("irc.ubuntu.com", 6667, 'cplusplus.com')
+bot = SimpleIrcBot.new("irc.ubuntu.com", 6667, 'botdever')
 
 trap("INT"){ bot.quit }
 
