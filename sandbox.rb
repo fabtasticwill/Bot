@@ -1,15 +1,15 @@
-def rm()
+def rm(a)
   say_to_chan("I'm sorry Dave, I'm afraid I can't do that.")
 end
-def cd()
+def cd(a)
   say_to_chan("I'm sorry Dave, I'm afraid I can't do that.")
 end
-def system()
+def system(a)
   say_to_chan("I'm sorry Dave, I'm afraid I can't do that.")
 end
-def ls(a)
+def ls()
   say_to_chan("I'm sorry Dave, I'm afraid I can't do that.")
 end
-def remove()
+def remove(a)
     say_to_chan("I'm sorry Dave, I'm afraid I can't do that.")
 end
