@@ -41,12 +41,12 @@ class SimpleIrcBot
         end
         if content.match("!do ")
           msg.gsub!(/.*?(?=!do)/im, "")
-          .gsub("!do ", "")
+          msg.slice("!do ")
           say msg
         end
         if content.match("!ruby ")
           msg.gsub!(/.*?(?=!ruby)/im, "")
-          msg.gsub("!ruby ", "")
+          msg.slice("!ruby ")
           #say_to_chan(msg)
             #say_to_chan("I'm sorry Bill, I'm afraid I can't let you do that.")
           begin
