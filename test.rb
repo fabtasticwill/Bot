@@ -44,7 +44,7 @@ class SimpleIrcBot
           msg.gsub!(/.*?(?=!ruby)/im, "")
           msg.delete! '!ruby '
           #say_to_chan(msg)
-            say_to_chan("I'm sorry Bill, I'm afraid I can't let you do that.")
+            #say_to_chan("I'm sorry Bill, I'm afraid I can't let you do that.")
           begin
             say_to_chan(eval(msg).to_s)
           rescue Exception => exc
