@@ -40,6 +40,10 @@ class SimpleIrcBot
           say "EXIT"
           abort("Exiting")
         end
+        if content.match("!do ")
+          msg.gsub!(/.*?(?=!do)/im, "")
+          msg.delete! '!do '
+          say msg
         if content.match("!ruby ")
           msg.gsub!(/.*?(?=!ruby)/im, "")
           msg.delete! '!ruby '
