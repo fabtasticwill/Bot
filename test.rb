@@ -9,7 +9,6 @@ class SimpleIrcBot
     say "USER willbot 0 * WillBot"
     say "JOIN ##{@channel}"
     say_to_chan "#{1.chr}ACTION is here to help#{1.chr}"
-    say "/msg nickserv register Neville! 123williammorris@gmail.com"
   end
 
   def say(msg)
@@ -42,12 +41,12 @@ class SimpleIrcBot
         end
         if content.match("!do ")
           msg.gsub!(/.*?(?=!do)/im, "")
-          msg.delete! '!do '
+          .gsub("!do ", "")
           say msg
         end
         if content.match("!ruby ")
           msg.gsub!(/.*?(?=!ruby)/im, "")
-          msg.delete! '!ruby '
+          msg.gsub("!ruby ", "")
           #say_to_chan(msg)
             #say_to_chan("I'm sorry Bill, I'm afraid I can't let you do that.")
           begin
