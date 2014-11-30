@@ -33,16 +33,25 @@ class SimpleIrcBot
       if msg.match(/PRIVMSG ##{@channel} :(.*)$/)
         content = $~[1]
 
-        #put matchers here
-        if content.match("botexit")
-          say_to_chan("#{1.chr}ACTION is exiting...#{1.chr}")
-          say "EXIT"
-          abort("Exiting")
-        end
         if content.match("!do ")
           msg.gsub!(/.*?(?=!do)/im, "")
           msg.slice!("!do ")
           say msg
+        end
+        if content.match("!admin")
+          temp = msg
+          temp.split("!admin")[0]
+          #temp.slice!("!admin")
+          if msg.match("Fabtasticwill")
+            if content.match("exit")
+              say_to_chan("#{1.chr}ACTION is exiting...#{1.chr}")
+              say "EXIT"
+              abort("Exiting")
+            end
+          else
+            say_to_chan("I'm sorry Dave, I'm afraid I can't do that.");
+          end
+          #end
         end
         if content.match("!ruby ")
           msg.gsub!(/.*?(?=!ruby)/im, "")
