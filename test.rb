@@ -5,8 +5,8 @@ class SimpleIrcBot
   def initialize(server, port, channel)
     @channel = channel
     @socket = TCPSocket.open(server, port)
-    say "NICK WillBotasdf"
-    say "USER willbotasdf 0 * WillBotasdf"
+    say "NICK WillBot"
+    say "USER willbot 0 * WillBot"
     say "JOIN ##{@channel}"
     say_to_chan "#{1.chr}ACTION is here to help#{1.chr}"
   end
