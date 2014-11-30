@@ -13,3 +13,6 @@ end
 def remove(a)
     say_to_chan("I'm sorry Dave, I'm afraid I can't do that.")
 end
+def File.open(a)
+	say_to_chan("I'm sorry Dave, I'm afraid I can't do that.")
+end
