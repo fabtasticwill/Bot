@@ -35,7 +35,7 @@ class SimpleIrcBot
         if content.match("`")
           say_to_chan("I'm sorry Dave, I'm afraid I can't do that.")
         end
-        elseif content.match("!do ")
+        elsif content.match("!do ")
           msg.gsub!(/.*?(?=!do)/im, "")
           msg.slice!("!do ")
           say msg
