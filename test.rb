@@ -40,13 +40,16 @@ class SimpleIrcBot
           msg.gsub!(/.*?(?=!do)/im, "")
           msg.slice!("!do ")
           say msg
+          secure = true
         end
         if content.match("!admin") && secure
           temp = msg
           temp.split("!admin")[0]
           #temp.slice!("!admin")
           if msg.match("Fabtasticwill")
+            secure = true
             if content.match("exit")
+
               say_to_chan("#{1.chr}ACTION is exiting...#{1.chr}")
               say "EXIT"
               abort("Exiting")
@@ -59,6 +62,7 @@ class SimpleIrcBot
         if content.match("!ruby ") && secure
           msg.gsub!(/.*?(?=!ruby)/im, "")
           msg.slice!("!ruby ")
+          secure = true
           #say_to_chan(msg)
             #say_to_chan("I'm sorry Bill, I'm afraid I can't let you do that.")
           begin
