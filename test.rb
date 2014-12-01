@@ -40,7 +40,7 @@ class SimpleIrcBot
           msg.slice!("!do ")
           say msg
         end
-        elseif content.match("!admin")
+        elsif content.match("!admin")
           temp = msg
           temp.split("!admin")[0]
           #temp.slice!("!admin")
@@ -55,7 +55,7 @@ class SimpleIrcBot
           end
           #end
         end
-        elseif content.match("!ruby ")
+        elsif content.match("!ruby ")
           msg.gsub!(/.*?(?=!ruby)/im, "")
           msg.slice!("!ruby ")
           #say_to_chan(msg)
