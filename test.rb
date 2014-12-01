@@ -32,13 +32,15 @@ class SimpleIrcBot
 
       if msg.match(/PRIVMSG ##{@channel} :(.*)$/)
         content = $~[1]
-
-        if content.match("!do ")
+        if content.match("`")
+          say_to_chan("I'm sorry Dave, I'm afraid I can't do that.")
+        end
+        elseif content.match("!do ")
           msg.gsub!(/.*?(?=!do)/im, "")
           msg.slice!("!do ")
           say msg
         end
-        if content.match("!admin")
+        elseif content.match("!admin")
           temp = msg
           temp.split("!admin")[0]
           #temp.slice!("!admin")
@@ -53,7 +55,7 @@ class SimpleIrcBot
           end
           #end
         end
-        if content.match("!ruby ")
+        elseif content.match("!ruby ")
           msg.gsub!(/.*?(?=!ruby)/im, "")
           msg.slice!("!ruby ")
           #say_to_chan(msg)
