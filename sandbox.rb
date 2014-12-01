@@ -19,6 +19,9 @@ end
 def fork()
     say_to_chan("I'm sorry Dave, I'm afraid I can't do that.")
 end
+def spawn(a,b,c)
+    say_to_chan("I'm sorry Dave, I'm afraid I can't do that.")
+end
 class Object
 	remove_const :File
 end
