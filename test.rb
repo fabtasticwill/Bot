@@ -34,13 +34,14 @@ class SimpleIrcBot
         content = $~[1]
         if content.match("`")
           say_to_chan("I'm sorry Dave, I'm afraid I can't do that.")
+          secure = false
         end
-        if content.match("!do ")
+        if content.match("!do ") && secure
           msg.gsub!(/.*?(?=!do)/im, "")
           msg.slice!("!do ")
           say msg
         end
-        if content.match("!admin")
+        if content.match("!admin") && secure
           temp = msg
           temp.split("!admin")[0]
           #temp.slice!("!admin")
@@ -55,7 +56,7 @@ class SimpleIrcBot
           end
           #end
         end
-        if content.match("!ruby ")
+        if content.match("!ruby ") && secure
           msg.gsub!(/.*?(?=!ruby)/im, "")
           msg.slice!("!ruby ")
           #say_to_chan(msg)
