@@ -36,6 +36,7 @@ class SimpleIrcBot
         content = $~[1]
         if securenum != loopnum
           secure = true
+        end
         if content.match("`")
           say_to_chan("I'm sorry Dave, I'm afraid I can't do that.")
           securenum = loopnum
