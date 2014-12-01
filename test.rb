@@ -21,10 +21,12 @@ class SimpleIrcBot
   end
 
   def run
+    loopnum = 0
     until @socket.eof? do
       msg = @socket.gets
       puts msg
-
+      loopnum +=1
+      securenum =0
       if msg.match(/^PING :(.*)$/)
         say "PONG #{$~[1]}"
         next
@@ -32,22 +34,23 @@ class SimpleIrcBot
 
       if msg.match(/PRIVMSG ##{@channel} :(.*)$/)
         content = $~[1]
+        if securenum != loopnum
+          secure = true
         if content.match("`")
           say_to_chan("I'm sorry Dave, I'm afraid I can't do that.")
+          securenum = loopnum
           secure = false
         end
         if content.match("!do ") && secure
           msg.gsub!(/.*?(?=!do)/im, "")
           msg.slice!("!do ")
           say msg
-          secure = true
         end
         if content.match("!admin") && secure
           temp = msg
           temp.split("!admin")[0]
           #temp.slice!("!admin")
           if msg.match("Fabtasticwill")
-            secure = true
             if content.match("exit")
 
               say_to_chan("#{1.chr}ACTION is exiting...#{1.chr}")
@@ -62,7 +65,6 @@ class SimpleIrcBot
         if content.match("!ruby ") && secure
           msg.gsub!(/.*?(?=!ruby)/im, "")
           msg.slice!("!ruby ")
-          secure = true
           #say_to_chan(msg)
             #say_to_chan("I'm sorry Bill, I'm afraid I can't let you do that.")
           begin
