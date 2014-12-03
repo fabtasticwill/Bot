@@ -37,11 +37,11 @@ class SimpleIrcBot
         if securenum != loopnum
           secure = true
         end
-        if content.match("`")
-          say_to_chan("I'm sorry Dave, I'm afraid I can't do that.")
-          securenum = loopnum
-          secure = false
-        end
+        #if content.match("`") || content.match(";")
+        #  say_to_chan("I'm sorry Dave, I'm afraid I can't do that.")
+        #  securenum = loopnum
+        #  secure = false
+       # end
         if content.match("!do ") && secure
           msg.gsub!(/.*?(?=!do)/im, "")
           msg.slice!("!do ")
@@ -63,11 +63,14 @@ class SimpleIrcBot
           end
           #end
         end
+       # if msg.match("71.6.55.146")
+        #  say_to_chan("Whats up, rainfvr?")
+       # end
         if content.match("!ruby ") && secure
           msg.gsub!(/.*?(?=!ruby)/im, "")
           msg.slice!("!ruby ")
-          #say_to_chan(msg)
-            #say_to_chan("I'm sorry Bill, I'm afraid I can't let you do that.")
+          msg.untaint
+          $SAFE = 2
           begin
             say_to_chan(eval(msg).to_s)
           rescue Exception => exc
