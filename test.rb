@@ -51,7 +51,7 @@ class SimpleIrcBot
           temp = msg
           temp.split("!admin")[0]
           #temp.slice!("!admin")
-          if msg.match("Fabtasticwill")
+          if msg.start_with?("Fabtasticwill")
             if content.match("exit")
 
               say_to_chan("#{1.chr}ACTION is exiting...#{1.chr}")
