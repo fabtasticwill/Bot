@@ -47,11 +47,17 @@ class SimpleIrcBot
           msg.slice!("!do ")
           say msg
         end
+        if content.match("!action ") && secure
+          msg.gsub!(/.*?(?=!action)/im, "")
+          msg.slice!("!action ")
+          
+          say_to_chan("#{1.chr}ACTION "+msg+"#{1.chr}")
+        end
         if content.match("!admin") && secure
           temp = msg
           temp.split("!admin")[0]
           #temp.slice!("!admin")
-          if msg.start_with?("Fabtasticwill")
+          if msg.start_with?(":Fabtasticwill!")
             if content.match("exit")
 
               say_to_chan("#{1.chr}ACTION is exiting...#{1.chr}")

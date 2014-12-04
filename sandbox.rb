@@ -30,5 +30,6 @@ end
 #end
 class Object
 	remove_const :File
+	remove_const :Kernal
 	remove_const :Thread
 end
