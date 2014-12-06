@@ -1,6 +1,7 @@
 #def rm(a)
 #  say_to_chan("I'm sorry Dave, I'm afraid I can't do that.")
 #end
+b = 0
 def cd(a)
   say_to_chan("I'm sorry Dave, I'm afraid I can't do that.")
 end
@@ -30,6 +31,5 @@ end
 #end
 class Object
 	remove_const :File
-	remove_const :Kernal
 	remove_const :Thread
 end
